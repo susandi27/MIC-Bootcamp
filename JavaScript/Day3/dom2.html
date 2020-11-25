@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DOM 2</title>
+</head>
+<body>
+	<img src="images/1.jfif" width="200" height="200" id="myimg" onmouseover="big()" onmouseout="normal()">
+
+	<script type="text/javascript">
+		function big(){
+			var myimg=document.getElementById("myimg");
+			//var mywid=myimg.getAttribute("width");
+			//console.log(mywid);
+			myimg.setAttribute('width','400');
+			myimg.setAttribute('height','400');
+			}
+
+			function normal(){
+				var myimg=document.getElementById("myimg");
+				myimg.setAttribute('width','200');
+				myimg.setAttribute('height','200');
+
+				change();
+			}
+
+			function change(){
+				var myimg=document.getElementById("myimg");
+				var mysrc=myimg.getAttribute("src");
+				
+				if(mysrc="images/1.jfif"){
+					myimg.setAttribute("src","images/2.jfif");
+				}
+				else if(mysrc="images/2.jfif"){
+					myimg.setAttribute("src","images/3.jfif");
+				}
+				else{
+					myimg.setAttribute("src","images/1.jfif");
+				}
+		}
+	</script>
+</body>
+</html>

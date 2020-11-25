@@ -1,0 +1,63 @@
+/*Universal selector*/
+*{
+	background-color: silver;
+	line-height: 50px;
+}
+
+/*element selector*/
+h1{
+	font-family: Itim, cursive;
+}
+
+@font-face{
+	font-family: bb;
+	src:url("SyneTactile-Regular.ttf");
+}
+
+p{
+	line-height: 20px;
+	font-style: italic;
+	color: purple;
+	font-family: bb;
+}
+
+/*attribute selector */
+a[title="Google"]{
+	text-decoration: none;
+	color: green;
+}
+
+a[title="Lesson 1"],
+a[title="Lesson 2"],
+a[title="Lesson 3"]
+{
+	word-spacing: 10px;
+	color: #FF6600;
+}
+
+/*id selector*/
+p#firstP{
+	text-align: justify;
+}
+
+p.textCapatalize{
+	text-transform: uppercase;
+}
+
+p.secondP{
+	column-count: 3;
+}
+ /*Descedand selector*/
+p a{
+	color: blue;
+	text-decoration: overline;
+	text-decoration-style: double;
+	text-transform: lowercase;
+}
+
+p>a{
+	color: darkred;
+	text-decoration-style: wavy;
+	text-transform: uppercase;
+}
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>switch</title>
+	<script type="text/javascript">
+		function colorfun(){
+			var mycolor=document.getElementById("setcolor").value;
+			//console.log(mycolor);
+			switch(mycolor){
+				case 'Black':
+				document.getElementById("p1").style.color='black';
+				break;
+
+				case 'Green':
+				document.getElementById("p1").style.color="green";
+				break;
+
+				case 'Yellow':
+				document.getElementById("p1").style.color="yellow";
+				break;
+
+				case 'Red':
+				document.getElementById("p1").style.color="red";
+				break;
+				
+				default:
+				document.getElementById("p1").style.color="blue";
+			}
+		}
+
+	</script>
+</head>
+<body>
+	<p id="p1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. </p>
+	<select id="setcolor">
+		<option>Black</option>
+		<option>Green</option>
+		<option>Yellow</option>
+		<option>Red</option>
+		<option>Blue</option>
+	</select>
+	<button onclick="colorfun()">Change color</button>
+</body>
+</html>

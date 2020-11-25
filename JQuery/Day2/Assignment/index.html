@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Puppy World</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="jquery.min.js"></script>
+</head>
+<body>
+	<header>
+		Puppy World
+	</header>
+	<main>
+		<div id="container">	
+				<div class="maindiv">
+					<img src="images/goldern retriever.jfif">
+					<p>Goldern Retriever</p>
+					<p>Price: 300000</p>
+					<button class="addtocart" data-id="1" data-name="gold" data-price="300000" data-photo="images/goldern retriever.jfif">Add to cart</button>
+				</div>
+				<div class="maindiv">
+					<img src="images/german shepherd.jfif">
+					<p>German Shpherd</p>
+					<p>Price: 300000</p>
+					<button class="addtocart" data-id="2" data-name="german" data-price="300000" data-photo="images/german shepherd.jfif">Add to cart</button>
+				</div>
+				<div class="maindiv">
+					<img src="images/terrier.jfif">
+					<p>Terrier</p>
+					<p>Price: 200000</p>
+					<button class="addtocart" data-id="3" data-name="terrier" data-price="200000" data-photo="images/terrier.jfif">Add to cart</button>
+				</div>
+				<div class="maindiv">
+					<img src="images/bulldog.jfif">
+					<p>Bulldog</p>
+					<p>Price: 400000</p>
+					<button class="addtocart" data-id="4" data-name="bull" data-price="400000" data-photo="images/bulldog.jfif">Add to cart</button>
+				</div>
+				<div class="maindiv">
+					<img src="images/fluffy puppy.jfif">
+					<p>Fluffy</p>
+					<p>Price: 300000</p>
+					<button class="addtocart" data-id="5" data-name="fluffy" data-price="300000" data-photo="images/fluffy puppy.jfif" >Add to cart</button>
+				</div>
+		</div>
+
+		<div class="mycart">
+			<h1 align="center" style="display: inline;">My cart</h1>
+			<img src="images/cart1.png" width="50px" height="50px" id="imgg" ><span color="red" id="cart"></span>
+
+			<table border="1" cellpadding="20px" style="margin-top: 30px">
+				<thead>
+					<th>No</th>
+					<th>Name</th>
+					<th>photo</th>
+					<th>qty</th>
+					<th>price</th>
+					<th>Subtotal</th>
+				</thead>
+				<tbody>
+					
+				</tbody>
+			</table>
+			<button class="checkout">Check out</button>
+		</div>
+	</main>
+
+	<!-- footer -->
+	<footer>
+		copyright &#169; 2020, Puppy World
+	</footer>
+
+	<!-- jquery code -->
+	<script type="text/javascript">
+		$(document).ready(function(){
+		showdata();
+		cartnoti();
+		checkout();
+
+		//add to the localstorage
+		$(".addtocart").click(function(){
+			//alert("ok");
+			var id=$(this).data('id');
+			var name=$(this).data('name');
+			var price=$(this).data('price');
+			var photo=$(this).data('photo');
+
+			var item={
+				id:id,
+				name:name,
+				price:price,
+				photo:photo,
+				qty:1,
+			}
+
+			//console.log(item);
+			var itemlist=localStorage.getItem("item");
+
+			var itemArray;
+			if(itemlist==null){
+				itemArray=[];
+			}else{
+				itemArray=JSON.parse(itemlist);
+			}
+
+			var status=false;
+			itemArray.forEach( function(v, i) {
+				if(id==v.id){
+					v.qty++
+					status=true;
+				}
+				// statements
+			});
+
+			if(status==false){
+				itemArray.push(item);
+			}
+			
+			//console.log(itemArray);
+			var itemstring=JSON.stringify(itemArray);
+			localStorage.setItem("item", itemstring);
+			showdata();
+			cartnoti();
+			checkout();
+		})
+
+
+		//showdata
+		function showdata(){
+			var itemlist=localStorage.getItem("item");
+			if(itemlist){
+				var itemArray=JSON.parse(itemlist);
+				console.log(itemArray);
+				var html="";
+				var j=1;
+				var total=0;
+				var subtotal;
+				itemArray.forEach( function(v, i) {
+					// statements
+					subtotal=v.qty*v.price;
+					total+=subtotal;
+					html+=`<tr>
+					<td>${j++}</td>
+					<td>${v.name}</td>
+					<td><img src="${v.photo}" width="100" height="100"></td>
+					<td><button class="btnincrease" data-id="${i}">+</button>${v.qty}<button class="btndecrease" data-id="${i}">-</button></td>
+					<td>${v.price}</td>
+					<td>${subtotal}</td>
+					</tr>`
+				});
+				html+=`<tr><td colspan="5">all total</td><td>${total}</td><tr>`
+				$("tbody").html(html);
+			}
+			/*else{
+				$("tbody").html('Empty Cart');
+			}*/
+		}
+
+		//noti
+		function cartnoti(){
+			var itemlist=localStorage.getItem("item");
+			var total=0;
+			if(itemlist){
+				var itemArray=JSON.parse(itemlist);
+				itemArray.forEach( function(v,i) {
+					//console.log(v);
+					total+=v.qty;
+					// statements
+				});
+				console.log(total);
+				$("#cart").html(total);
+
+			}
+			else{
+				$("#cart").html('0');
+
+			}
+		}
+
+
+		$("tbody").on('click','.btnincrease',function(){
+			//alert("ok");
+			var id=$(this).data('id');
+
+			var itemlist=localStorage.getItem("item");
+			if(itemlist){
+				var itemArray=JSON.parse(itemlist);
+
+				itemArray.forEach( function(v, i) {
+
+					if(i==id){
+						//alert("ok");
+						v.qty++;
+					}
+					// statements
+				});
+			var itemstring=JSON.stringify(itemArray);
+			localStorage.setItem("item",itemstring);
+			showdata();
+			cartnoti();
+			checkout();
+			}
+		})
+
+
+		$("tbody").on('click','.btndecrease',function(){
+			//alert("ok");
+			var id=$(this).data('id');
+
+			var itemlist=localStorage.getItem("item");
+			if(itemlist){
+				var itemArray=JSON.parse(itemlist);
+
+				itemArray.forEach( function(v, i) {
+
+					if(i==id){
+						//alert("ok");
+						v.qty--;
+						if(v.qty==0){
+							itemArray.splice(id, 1);
+						}
+					}
+					// statements
+				});
+			var itemstring=JSON.stringify(itemArray);
+			localStorage.setItem("item",itemstring);
+			showdata();
+			cartnoti();
+			checkout();
+			}
+		})
+	
+		function checkout(){
+			$(".checkout").click(function(){
+				localStorage.clear();
+				showdata();
+				cartnoti();
+			});
+		}
+		checkout();
+	})
+	</script>
+</body>
+</html>

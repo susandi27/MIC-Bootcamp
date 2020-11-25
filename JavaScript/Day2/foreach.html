@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>For Each</title>
+</head>
+<body>
+	<h1>Today todo list</h1>
+	<p id="todo"></p>
+
+	<script type="text/javascript">
+		var todolist=["to study japanese language","to do assignment","to attend online class"];
+		var list="";
+		list+="<ul>";
+		todolist.forEach(function(v,i){
+			list+="<li>"+v+"</li>";
+		});
+		list+="</ul>";
+		//console.log(list);
+
+		document.getElementById("todo").innerHTML=list;
+	</script>
+</body>
+</html>

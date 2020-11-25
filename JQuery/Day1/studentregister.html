@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Student Registeration</title>
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#btnregister").click(function(){
+				var name=$("#name").val();
+				var address=$("#address").val();
+				var age=$("#age").val();
+				var gender=$("input[name='gender']:checked").val(); //if gender checked
+				
+			//object
+			var student={
+				name:name,
+				age:age,
+				address:address,
+				gender: gender,
+			}
+			//console.log(student);
+			var studentlist=localStorage.getItem("student"); // localstorage key
+			var mystudentArray;
+			if(studentlist==null){
+				mystudentArray=[]; //[{mgmg,"ygn"},{"aye aye","mdy"},]
+			}
+			else{
+				mystudentArray=JSON.parse(studentlist);
+			}
+			mystudentArray.push(student);
+			//console.log(mystudentArray);
+
+			var stringStudent=JSON.stringify(mystudentArray);
+			localStorage.setItem("student",stringStudent);
+
+			showdata();
+
+			})
+			showdata();
+			//show data
+			function showdata(){
+				var studentlist=localStorage.getItem("student");
+				//console.log(studentlist);
+				if(studentlist){
+					var mystudentArray=JSON.parse(studentlist);
+					console.log(mystudentArray);
+
+					var html="";
+					mystudentArray.forEach(function(v,i){
+						html+=`<tr>
+						<td>${v.name}</td>
+						<td>${v.age}</td>
+						<td>${v.address}</td>
+						<td>${v.gender}</td>
+						</tr>`
+
+					});
+					$("#mytbody").html(html);
+				}
+
+			}
+		})
+		
+	</script>
+</head>
+<body>
+	<div id="divregister">
+		Name: <input type="text" name="" id="name"><br>
+		Age: <input type="text" name="" id="age"><br>
+		Address: <input type="text" name="" id="address"><br>
+		Gender: <br>
+		Male: <input type="radio" name="gender" value="male">
+		Female <input type="radio" name="gender" value="female"><br>
+		<button id="btnregister">Register</button>
+	</div>
+	<div>
+		<h3>Student Table</h3>
+		<table border=1 cellpadding=5>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Age</th>
+					<th>Address</th>
+					<th>Gender</th>
+				</tr>
+			</thead>
+			<tbody id="mytbody">
+				
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

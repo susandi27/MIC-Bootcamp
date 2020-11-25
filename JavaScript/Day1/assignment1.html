@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Assignment 1</title>
+	
+</head>
+<body>
+	First Number: <input type="text" name="num1" id="num1"> <br>
+	Second Number <input type="text" name="num2" id="num2"> <br>
+	<p class="myresult"></p>
+	<button onclick="sum()">Sum</button>
+	<button onclick="sub()">Sub</button>
+	<button onclick="mul()">Mul</button>
+	<button onclick="div()">Div</button>
+	<button onclick="mol()">Mol</button>
+	<script type="text/javascript">
+		function sum(){
+			var first_number=parseInt(document.getElementById('num1').value);
+			console.log(first_number);
+			var second_number=parseInt(document.getElementById('num2').value);
+				console.log(second_number)
+			/*console.log(first_number+second_number);*/
+			document.querySelector(".myresult").innerText=first_number+second_number;
+		}
+
+		function sub(){
+			var first_number=parseInt(document.getElementById('num1').value);
+			console.log(first_number);
+			var second_number=parseInt(document.getElementById('num2').value);
+				console.log(second_number)
+			/*console.log(first_number-second_number)*/
+			document.querySelector(".myresult").innerText=first_number-second_number;
+		}
+		function mul(){
+			var first_number=parseInt(document.getElementById('num1').value);
+			console.log(first_number);
+			var second_number=parseInt(document.getElementById('num2').value);
+				console.log(second_number)
+			/*console.log(first_number*second_number)*/
+			document.querySelector(".myresult").innerText=first_number*second_number;
+		}
+		function div(){
+			var first_number=parseInt(document.getElementById('num1').value);
+			console.log(first_number);
+			var second_number=parseInt(document.getElementById('num2').value);
+				console.log(second_number)
+			/*console.log(first_number/second_number)*/
+			document.querySelector(".myresult").innerText=first_number/second_number;
+		}
+		function mol(){
+			var first_number=parseInt(document.getElementById('num1').value);
+			console.log(first_number);
+			var second_number=parseInt(document.getElementById('num2').value);
+				console.log(second_number)
+			/*console.log(first_number%second_number)*/
+			document.querySelector(".myresult").innerText=first_number%second_number;
+		}
+	</script>
+</body>
+</html>

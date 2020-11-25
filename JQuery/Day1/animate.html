@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Animate</title>
+	<style type="text/css">
+		img{
+			position:relative;
+		}
+	</style>
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#btn").click(function(){
+				//$("img").hide(5000);
+				//$("img").fadeOut(3000);
+				//$("img").slideDown();
+				/*$("#img").animate({left:'250px'});
+				$("img").animate({top:'250px'});
+				$("img").animate({left:'0px'});
+				$("img").animate({top:'0px'});*/
+
+				$("img").toggle();
+
+			})
+		})
+	</script>
+</head>
+<body>
+	<img src="images/1.jfif" width="150" height="100"><br>
+	<button id="btn">Animate</button>
+</body>
+</html>

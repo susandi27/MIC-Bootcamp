@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Staff Registeration</title>
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#divedit").hide(); //hide Edit Form run the program
+			$("#btnregister").click(function(){
+				var name=$("#name").val();
+				var mail=$("#mail").val();
+				var address=$("#address").val();
+				var age=$("#age").val();
+				var gender=$("input[name='gender']:checked").val(); //if gender checked
+
+			if(name!=null && mail!=null && address!=null && age!=null && gender!=null){
+				
+			//object
+			var staff={
+				name:name,
+				mail: mail,
+				age:age,
+				address:address,
+				gender: gender,
+			}
+			console.log(staff);
+			var stafflist=localStorage.getItem("staff"); // localstorage key
+			var mystaffArray;
+			if(stafflist==null){
+				mystaffArray=[]; //[{mgmg,"ygn"},{"aye aye","mdy"},]
+			}
+			else{
+				mystaffArray=JSON.parse(stafflist);
+			}
+			mystaffArray.push(staff);
+			//console.log(mystaffArray);
+
+			var stringstaff=JSON.stringify(mystaffArray);
+			localStorage.setItem("staff",stringstaff);
+
+			showdata();
+			}
+			else{
+				alert("Please fill your information");
+			} //no fill (check) is end
+
+			})
+			showdata();
+			//show data
+			function showdata(){
+				var stafflist=localStorage.getItem("staff");
+				//console.log(stafflist);
+				if(stafflist){
+					var mystaffArray=JSON.parse(stafflist);
+					console.log(mystaffArray);
+
+					var html="";
+					mystaffArray.forEach(function(v,i){
+						html+=`<tr>
+						<td>${v.name}</td>
+						<td>${v.mail}</td>
+						<td>${v.age}</td>
+						<td>${v.address}</td>
+						<td>${v.gender}</td>
+						<td><button class="btnedit" data-id='${i}'>edit</button>
+						<button class="btndelete" data-id='${i}'>delete</button></td></tr>`
+						//data is to add data / i is index
+					});
+					$("#mytbody").html(html);
+				}
+
+			}
+			$("#mytbody").on("click",".btnedit",function(){
+				$("#divregister").hide();
+				$("#divedit").show();
+				var id=$(this).data("id");
+				var stafflist=localStorage.getItem("staff");
+				if(stafflist){
+					var staffArray=JSON.parse(stafflist);
+					var mystaff=staffArray[id];
+					console.log(mystaff);
+					var myname=mystaff.name;
+					var mymail=mystaff.mail;
+					var myage=mystaff.age;
+					var myaddress=mystaff.address;
+					var gender=mystaff.gender;
+					
+					//to update
+					$("#myid").val(id); //to update user click update button
+					$("#ename").val(myname);
+					$("#email").val(mymail);
+					$("#eage").val(myage);
+					$("#eaddress").val(myaddress);
+					if(gender=="male"){
+						$("emale").prop("checked","checked"); //prop is independent attributes so use (prop) | dependent attributes is use (attr)
+					}
+					else{
+						$("efemale").prop("checked","checked")
+					}
+
+				}
+				//console.log(id);
+			})
+			$("#btnupdate").click(function(){
+				var id=$("#myid").val();
+				var name=$("#ename").val();
+				var mail=$("#email").val();
+				var address=$("#eaddress").val();
+				var age=$("#eage").val();
+				var gender=$("input[name='gender']:checked").val();
+
+				var staff={
+				name:name,
+				mail:mail,
+				age:age,
+				address:address,
+				gender: gender,
+				}	
+
+				var stafflist=localStorage.getItem("staff");
+
+				if(stafflist){
+					var staffArray=JSON.parse(stafflist);
+					console.log(staffArray);
+					staffArray[id]=staff;
+					var stringstaff=JSON.stringify(staffArray);
+					console.log(staffArray);
+					localStorage.setItem("staff",stringstaff);
+					showdata();
+				}
+
+			})
+			$("#mytbody").on('click','.btndelete',function(){
+				var id=$(this).data('id');
+				var stafflist=localStorage.getItem("staff");
+				if(stafflist){
+					var staffArray=JSON.parse(stafflist);
+					staffArray.splice(id,1); //id==> index/ 1==> room
+					var stringstaff=JSON.stringify(staffArray);
+					localStorage.setItem("staff",stringstaff);
+				}
+				showdata();
+			})
+
+		})
+		
+	</script>
+</head>
+<body>
+	<div id="divregister">
+		<h1>Staff Register Form</h1>
+		Name: <input type="text" name="" id="name"><br>
+		Email <input type="email" name="" id="mail"><br>
+		Age: <input type="text" name="" id="age"><br>
+		Address: <input type="text" name="" id="address"><br>
+		Gender: <br>
+		Male: <input type="radio" name="gender" value="male">
+		Female <input type="radio" name="gender" value="female"><br>
+		<button id="btnregister">Register</button>
+	</div>
+	<div id="divedit">
+		<h1>Edit Form</h1>
+		<input type="hidden" name="" id="myid">
+		Name: <input type="text" name="" id="ename"><br>
+		Email <input type="email" name="" id="email"><br>
+		Age: <input type="text" name="" id="eage"><br>
+		Address: <input type="text" name="" id="eaddress"><br>
+		Gender: <br>
+		Male: <input type="radio" name="gender" value="male" id="emale">
+		Female <input type="radio" name="gender" value="female" id="efeamle"><br>
+		<button id="btnupdate">Update</button>
+	</div>
+	<div>
+		<h3>Staff Table</h3>
+		<table border=1 cellpadding=5>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Age</th>
+					<th>Address</th>
+					<th>Gender</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody id="mytbody">
+				
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

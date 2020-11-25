@@ -1,0 +1,37 @@
+<!-- Document Object Model
+animation
+HTML element access/change
+CSS style change
+html element create
+create event -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>JS DOM</h1>
+	<p>JS <b>DOM</b> is funny</p>
+	<p class="myp">JS <b>DOM</b> is funny</p>
+	<p class="myp"></p>
+
+	<button onclick="show()">Show</button>
+	<button onclick="showtag()">Show Tag</button>
+
+	<script type="text/javascript">
+		function show(){
+			var myp=document.getElementsByClassName("myp");
+			//console.log(myp[0].innerHTML);
+			myp[0].style.color = 'red'; //css change
+			myp[1].innerHTML=myp[0].innerHTML;
+		}
+
+		function showtag(){
+			var mytags=document.getElementsByTagName("p");
+			//console.log(mytags);
+			mytags[2].innerHTML=mytags[0].innerHTML+' '+mytags[1].innerHTML;
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Function</title>
+	<script type="text/javascript">
+		function show(name){
+			console.log(name+" how are you");
+		}
+		show ('mg mg');
+
+		function average(n1,n2,n3){
+			var num=(n1+n2+n3)/3;
+			console.log(num);
+		}
+		average(1,2,3);
+
+		//nameless function
+		var x=function(a,b){
+			return a+b;
+		}
+		var sum=x(3,3);
+		console.log(sum);
+
+		//arrow function (es6)
+		var add=(a,b)=>{return a+b};
+		var mysum=add(4,5);
+		console.log(mysum);
+
+		//callback function
+		function functionOne(x){
+			alert(x);
+		}
+
+ 							//2		//functionOne
+		function functionTwo(var1,callback){
+			callback(var1); //2
+		}
+
+		functionTwo(2,functionOne);
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

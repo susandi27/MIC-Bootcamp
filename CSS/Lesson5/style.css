@@ -1,0 +1,10 @@
+div.float_left img{
+	float:left;
+}
+.clear{
+	clear: both;
+}
+
+div.float_right img{
+	float:right;
+}

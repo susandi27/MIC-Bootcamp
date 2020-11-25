@@ -1,0 +1,32 @@
+div#container{
+	width: 1200px;
+	margin-left: 20px;
+}
+div.div1,
+div.div2,
+div.div3,
+div.div4,
+div.div5,
+div.div6,
+div.div7,
+div.div8,
+div.div9{
+	height: 100px;
+	width: 140px;
+}
+
+div#container
+{
+	display: grid;
+	grid-template-columns: auto auto auto auto auto auto auto auto auto;
+}
+
+div#container img{
+	width: 100px;
+	height: 100px;
+}
+
+.div1 > img {
+  object-fit: cover;
+  width: 100%;
+}

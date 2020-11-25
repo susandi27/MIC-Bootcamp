@@ -1,0 +1,33 @@
+div.flexOne div,
+div.flexTwo div,
+div.flexThree div,
+div.flexFour div{
+	color: white;
+	font-size: 15px;
+	text-align: center;
+}
+div.flexOne,div.flexTwo,div.flexThree,div.flexFour{
+	display: flex;
+}
+div.flexOne div{
+	flex:1;  /*equally seperated*/
+	/*flex: flex-grow flex-shrink flex-basis
+	flex: 1= flex: 1 1 0*/
+}
+
+/*flex-basic => length of flexible item (width)*/
+div.flexTwo div:nth-child(3){
+	flex-basis: 200px;
+}
+
+/*flex-grow => item will grow to the rest of flexible item*/
+div.flexThree div:nth-child(2){
+	flex-grow: 3;
+}
+
+/*flex-direction ==> row | row-reverse | column | column-reverse*/
+div.flexFour{
+	/*flex-direction: column;*/
+	/*flex-direction: row;*/
+	flex-direction: row-reverse;
+}

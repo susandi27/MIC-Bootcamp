@@ -1,0 +1,18 @@
+.lessonClick:link{
+
+}
+.lessonClick:hover{
+
+}
+
+.lessonClick:active{
+
+}
+
+.lessonClick:{
+
+}
+:target{
+	background-color: skyblue;
+	border:2px solid blue;
+}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BOM</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function ask(){
+			var ans=confirm("Do u go to youtube");
+			if(ans){
+				location.href="https://www.youtube.com/"; //browser 
+			}
+			else{
+				location.href="https://www.google.com/"
+			}
+		}
+	</script>
+	<body onload="ask()"></body>
+</body>
+</html>

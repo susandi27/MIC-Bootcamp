@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exam Result</title>
+</head>
+<body>
+	Myanamr: <input type="text" name="myan" id="myan"><br>
+	Eng: <input type="text" name="eng" id="eng"><br>
+	Math: <input type="text" name="math" id="math"><br>
+	<p class="myresult"></p>
+	<button onclick="check()">Result</button>
+
+	<script type="text/javascript">
+	
+		function check(){
+			var myan=parseInt(document.getElementById('myan').value);
+			var eng=parseInt(document.getElementById('eng').value);
+			var math=parseInt(document.getElementById('math').value);
+			if(myan >=40  && eng >=40 && math >=40){
+				if(myan>=80 || eng>=80 || math>=80 ){
+					alert("disti");
+				}
+				else{
+					alert("pass");
+				}
+			}
+			else{
+				alert("fail");
+			}
+		}
+	</script>
+</body>
+</html>

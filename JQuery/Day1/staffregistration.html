@@ -1,0 +1,110 @@
+<!-- for staff registration
+email input
+check register condition -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Staff Registeration</title>
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#btnregister").click(function(){
+				var name=$("#name").val();
+				var email=$("#email").val();
+				var address=$("#address").val();
+				var age=$("#age").val();
+				var gender=$("input[name='gender']:checked").val(); //if gender checked
+			
+			if(name!=null && email!=null && address!=null && age!=null && gender!=null){
+				
+			//object
+				var staff={
+				name:name,
+				email:email,
+				age:age,
+				address:address,
+				gender: gender,
+			}
+			
+			//console.log(staff);
+			var stafflist=localStorage.getItem("staff"); // localstorage key
+			var mystaffArray;
+			if(stafflist==null){
+				mystaffArray=[]; //[{mgmg,"ygn"},{"aye aye","mdy"},]
+			}
+			else{
+				mystaffArray=JSON.parse(stafflist);
+			}
+			mystaffArray.push(staff);
+			//console.log(mystaffArray);
+
+			var stringstaff=JSON.stringify(mystaffArray);
+			localStorage.setItem("staff",stringstaff);
+		
+			showdata();
+			}
+			else{
+				alert("Please fill your information");
+			}
+			})
+
+			showdata();
+			//show data
+			function showdata(){
+				var stafflist=localStorage.getItem("staff");
+				//console.log(stafflist);
+				if(stafflist){
+					var mystaffArray=JSON.parse(stafflist);
+					console.log(mystaffArray);
+
+					var html="";
+					mystaffArray.forEach(function(v,i){
+						html+=`<tr>
+						<td>${v.name}</td>
+						<td>${v.email}</td>
+						<td>${v.age}</td>
+						<td>${v.address}</td>
+						<td>${v.gender}</td>
+						</tr>`
+
+					});
+					$("#mytbody").html(html);
+				}
+
+			}
+
+		})
+		
+	</script>
+</head>
+<body>
+	<div id="divregister">
+		Name: <input type="text" name="" id="name"><br>
+		Email: <input type="email" name="" id="email"><br>
+		Age: <input type="text" name="" id="age"><br>
+		Address: <input type="text" name="" id="address"><br>
+		Gender: <br>
+		Male: <input type="radio" name="gender" value="male">
+		Female <input type="radio" name="gender" value="female"><br>
+		<button id="btnregister">Register</button>
+	</div>
+	<div>
+		<h3>Staff Table</h3>
+		<table border=1 cellpadding=5 cellspacing="1">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Age</th>
+					<th>Address</th>
+					<th>Gender</th>
+				</tr>
+			</thead>
+			<tbody id="mytbody">
+				
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

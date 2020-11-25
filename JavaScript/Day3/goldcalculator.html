@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gold Calculator</title>
+	<style type="text/css">
+		fieldset{
+			width: 20%;
+			height: auto;
+			margin:auto;
+		}
+
+	</style>
+</head>
+<body>
+	<fieldset>
+		<legend>GOLD CALCULATOR</legend>
+		<label for="gram">Gram</label>
+		<input type="text" name="gram" id="gram">
+		<br><br>
+		<label for="price">Price</label>
+		<input type="text" name="price" id="price" value="110000" readonly="">
+		<br><br>
+		<button onclick="calculate()">Calculate</button>
+		<br><br>
+		<label for="ks">Kyats</label>
+		<input type="text" name="ks" id="ks">
+		<br><br>
+		<label for="pae">Pae</label>
+		<input type="text" name="pae" id="pae">
+		<br><br>
+		<label for="yway">Ywae</label>
+		<input type="text" name="ywae" id="yway">
+		<br><br>
+		<label for="tot">Total</label>
+		<input type="text" name="tot" id="tot">
+	</fieldset>
+
+	<script type="text/javascript">
+		function calculate(){
+			var gram=document.getElementById('gram').value;
+			var ks=parseInt(gram /16.6);
+			var displayks=document.getElementById('ks');
+			displayks.value=ks;
+
+
+			var pae=(gram/16.6)-ks;
+			var calpae=parseInt(pae*16);
+			var displaypae=document.getElementById('pae');
+			displaypae.value=calpae;
+
+			var yway=(pae*16)-calpae;
+			var calyway=parseInt(yway*8);
+			var displayyway=document.getElementById('yway');
+			displayyway.value=calyway;
+
+			var kyats=document.getElementById('price').value;
+			var totks=ks*kyats;
+
+			var totpae=calpae/16*110000;
+
+			var totyway=calyway/8*110000;
+
+			var totalprice=totks+totpae+totyway;
+
+			var displaytot=document.getElementById('tot');
+			displaytot.value=totalprice;
+		}
+			
+			
+	</script>
+</body>
+</html>
+
+<!-- #today assignment formula
+Gold Calculator Formula
+
+20g/16.6=1.20481928
+1kyat
+0.20481928*16=3.27710848
+3pae
+0.27710848*8=2.21686784
+2yay
+
+1kyat thar=1100000
+1kyat    3pae/16   2yay/128=???? -->

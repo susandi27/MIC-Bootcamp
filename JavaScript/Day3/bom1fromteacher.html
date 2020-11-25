@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BOM</title>
+</head>
+<body>
+
+	<label id="current_time"></label>
+
+
+	<button onclick="setTimeout('showtime()',3000)">Clicker</button>
+	<button onclick="showclock=setInterval('showtime()',1000)">Click</button>
+	<button onclick="clearInterval(showclock)">stop</button>
+<script type="text/javascript">
+	function showtime(){
+		var now=new Date();
+		var current_time=now.toLocaleTimeString();
+		document.getElementById("current_time").innerText=current_time;
+	}
+</script>
+</body>
+</html>

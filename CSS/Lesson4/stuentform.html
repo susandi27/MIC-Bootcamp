@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Assignment 2 (Student Form)</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<form>
+		<h3>Student Form</h3>
+		<label for="stuname">Name</label>
+		<input type="text" name="name" id="stuname" placeholder="Ko Ko"><br>
+		<label for="fname">Father Name</label>
+		<input type="text" name="name" id="fname" placeholder="U Kyaw"><br>
+		<label for="stuphone">Phone</label>
+		<input type="number" name="ph" id="stuphone" placeholder="09-xxxxxxx"><br>
+		<label>Date of Birth</label><br>
+		<div id="divselect">
+		<select>
+			<option>Day</option>
+		</select>
+		<select>
+			<option>Month</option>	
+		</select>
+		<select>
+			<option>Year</option>	
+		</select>
+		<div>
+		<br>
+		<label for="email">Email</label>
+		<input type="email" name="mail" id="email" placeholder="koko@gmail.com"><br>
+		<label>Gender</label><br>
+		<input type="radio" name="gender" id="male" checked="">
+		<label for="male">Male</label>
+		<input type="radio" name="gender" id="female" >
+		<label for="female">Female</label>
+		<br>
+		<label for="address">Address</label>
+		<textarea id="address"></textarea>
+		<label>Qualification</label><br>
+		<input type="checkbox" name="high" enabled>  
+		<label>High School (10th)</label> <br>
+		<input type="checkbox" name="higher" disabled="">
+		<label> Higher School (12th)</label><br>
+		<input type="checkbox" name="graduration" enabled> 
+		<label>Graduration (Bachelors)</label><br>
+		<input type="checkbox" name="post" enabled> 
+		<label>Post Graduration</label><br>
+		<input type="checkbox" name="phd" enabled> 
+		<label>Phd</label><br>
+	</form>
+	<fieldset>
+		<legend>Rules:</legend>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. </p>
+		<ul>
+			<li>1 Rule</li>
+			<li>2 Rule</li>
+			<li>3 Rule</li>
+			<li>4 Rule</li>
+			<li>5 Rule</li>
+			<li>6 Rule</li>
+			<li>7 Rule</li>
+		</ul>
+	</fieldset>
+	<fieldset>
+		<legend>For Office Use Only</legend>
+		<input type="checkbox" name="approve" id="approve">
+		<label for="approve">Approve / Emdorse </label><br>
+		<input type="checkbox" name="disapprove" id="disapprove"> 
+		<label for="disapprove">Disapprove / Not Emdorse </label><br>
+		<label for="empname">Employee Name</label>
+		<input type="text" name="emp" id="empname"value="Mr. John" readonly=""> Employee Sign <br><br><br>
+		<label for="date">Date</label>
+		<input type="date" name="date" id="date">
+	</fieldset>
+	<p></p>
+	<p>Thank You</p>
+	<p></p>
+</body>
+</html>

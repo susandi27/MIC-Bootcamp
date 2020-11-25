@@ -1,0 +1,850 @@
+/*Start Carousel*/
+.carousel-item {
+  /*height: 100vh;*/
+  min-height: 100px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.carousel-caption {
+  bottom: 270px;
+}
+
+.carousel-caption h5 {
+  font-size: 45px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 25px;
+}
+
+.carousel-caption p {
+  width: 75%;
+  margin: auto;
+  font-size: 18px;
+  line-height: 1.9;
+}
+
+.navbar-light .navbar-brand {
+  color: #fff;
+  font-size: 25px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show > .nav-link {
+  color: #fff;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #fff;
+}
+
+.navbar-toggler {
+  background: #fff;
+}
+
+.navbar-nav {
+  text-align: center;
+}
+
+.nav-link {
+  padding: .2rem 1rem;
+  font-size: 19px;
+
+}
+
+.nav-link.active,.nav-link:focus{
+  color: #fff;
+}
+
+.navbar-toggler {
+  padding: 1px 5px;
+  font-size: 18px;
+  line-height: 0.3;
+}
+
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+}
+
+#Nav-hov:hover{color: red;color: #D2691E;font-size: 20px;}
+
+
+
+/* ignore the code below */
+
+
+.link-area
+{
+  position:fixed;
+  bottom:20px;
+  left:20px;  
+  padding:15px;
+  border-radius:40px;
+  background:tomato;
+}
+.link-area a
+{
+  text-decoration:none;
+  color:#fff;
+  font-size:25px;
+}
+
+
+.change_content:after{
+  content: '';
+  animation: changetext1 10s infinite linear;
+color: #D2691E;
+}
+@keyframes changetext1{
+  0%{content:"Natural";}
+  20%{content:"Fresh";}
+  35%{content:"Clean";}
+  60%{content:"Food Insurance";}
+  80%{content:"Fast Delivery";}
+  100%{content:"Always Open";}
+}
+
+
+
+.change_content1:after{
+  content: '';
+  animation: changetext 10s infinite linear;
+color: #D2691E;
+}
+@keyframes changetext{
+  0%{content:"GOOGLE";}
+  20%{content:"JACK-MA";}
+  35%{content:"BILL-GATE";}
+  60%{content:"FACEBOOK";}
+  80%{content:"INSTAGRAM";}
+  100%{content:"ALIBABA";}
+}
+/*#move:hover{color: transparent;}*/
+#move{font-weight: bold;font-size: 30px;}
+
+.Pos{
+  position: absolute;
+  left: 5px;
+  bottom: 5px;
+}
+
+.btn_right{
+  font-weight: bold;
+
+}
+.btn_right:hover{background-color: transparent;color: silver;}
+
+.btn_left{
+  font-weight: bold;
+  color: black;
+  background-color: #D2691E;
+  border:1px solid:#D2691E ;
+
+}
+.btn_left:hover{color:#D2691E;font-weight: bold;background-color: transparent;border:1px solid #D2691E;}
+
+/*End Carousel*/
+
+
+
+/* Start Learm Mor About Our Chocolate */
+/*.background_img{
+    background-image: url(images/banner.jpg);
+    
+}*/
+/* .col{  
+    margin: 1rem;
+    cursor: pointer;
+  } */
+  
+  .styleHover{
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+      -webkit-perspective: 1000px;
+              perspective: 1000px;
+  }
+  
+  .front,
+  .back{
+    background-size: cover;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.25);
+    border-radius: 10px;
+      background-position: center;
+      -webkit-transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+      transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+      -o-transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+      transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+      transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1), -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+      -webkit-backface-visibility: hidden;
+              backface-visibility: hidden;
+      text-align: center;
+      min-height: 280px;
+      height: auto;
+      border-radius: 10px;
+      color: #fff;
+      font-size: 1.5rem;
+  }
+  
+  .back{
+    background: #cedce7;
+    background: -webkit-linear-gradient(45deg,  #cedce7 0%,#596a72 100%);
+    background: -o-linear-gradient(45deg,  #cedce7 0%,#596a72 100%);
+    background: linear-gradient(45deg,  #cedce7 0%,#596a72 100%);
+  }
+  
+  .front:after{
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      content: '';
+      display: block;
+      opacity: .6;
+      background-color: #000;
+      -webkit-backface-visibility: hidden;
+              backface-visibility: hidden;
+      border-radius: 10px;
+  }
+  .styleHover:hover .front,
+  .styleHover:hover .back{
+      -webkit-transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+      transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+      -o-transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+      transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+      transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1), -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+  }
+  
+  .back{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+  }
+  
+  .inner{
+      -webkit-transform: translateY(-50%) translateZ(60px) scale(0.94);
+              transform: translateY(-50%) translateZ(60px) scale(0.94);
+      top: 50%;
+      position: absolute;
+      left: 0;
+      width: 100%;
+      padding: 1rem;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+      outline: 1px solid transparent;
+      -webkit-perspective: inherit;
+              perspective: inherit;
+      z-index: 2;
+  }
+  
+  .styleHover .back{
+      -webkit-transform: rotateY(180deg);
+              transform: rotateY(180deg);
+      -webkit-transform-style: preserve-3d;
+              transform-style: preserve-3d;
+  }
+  
+  .styleHover .front{
+      -webkit-transform: rotateY(0deg);
+              transform: rotateY(0deg);
+      -webkit-transform-style: preserve-3d;
+              transform-style: preserve-3d;
+  }
+  
+  .styleHover:hover .back{
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+  }
+  
+  .styleHover:hover .front{
+    -webkit-transform: rotateY(-180deg);
+            transform: rotateY(-180deg);
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+  }
+  
+  .front .inner p{
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+  }
+  
+  .front .inner p:after{
+    content: '';
+    width: 4rem;
+    /* height: 2px;
+    background: red; */
+    position: absolute;
+    display: block;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    bottom: -.75rem;
+  }
+  
+  /* .front .inner span{
+    color: rgba(255,255,255,0.7);
+    font-family: 'Montserrat';
+    font-weight: 100;
+  } */
+  
+  @media screen and (max-width: 64rem){
+    .col{
+      width: calc(33.333333% - 2rem);
+    }
+  }
+  
+  @media screen and (max-width: 48rem){
+    .col{
+      width: calc(50% - 2rem);
+    }
+  }
+  
+  @media screen and (max-width: 32rem){
+    .col{
+      width: 100%;
+      margin: 0 0 2rem 0;
+    }
+  }  
+/* End Learm Mor About Our Chocolate */
+
+/* Start for Contact */
+#contact_style{
+    color: white;    
+}
+#contact_style img{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative; 
+    opacity: 0.8;
+}
+/* Address */
+#contact_text i{
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    font-size: 20;
+}
+#contact_text h5{
+    position: absolute;
+    top: 100px;
+    left: 150px;
+    font-size: 20px;
+}
+#contact_text p{
+    position: absolute;
+    top: 130px;
+    left: 150px;
+    font-size: 20px;
+}
+/* Lets Talk */
+#contact_text2 i{
+    position: absolute;
+    top: 250px;
+    left: 100px;
+    font-size: 20;
+}
+#contact_text2 h5{
+    position: absolute;
+    top: 250px;
+    left: 150px;
+    font-size: 20px;
+}
+#contact_text2 p{
+    position: absolute;
+    top: 280px;
+    left: 150px;
+    font-size: 20px;
+}
+#contact_text3 i{
+    position: absolute;
+    top: 360px;
+    left: 100px;
+    font-size: 20;
+}
+#contact_text3 h5{
+    position: absolute;
+    top: 360px;
+    left: 150px;
+    font-size: 20px;
+}
+#contact_text3 p{
+    position: absolute;
+    top: 400px;
+    left: 150px;
+    font-size: 20px;
+}
+/* End for Contact */
+
+/* Start Blog Page Image Animation */
+.blogSlideUp {
+  position: relative;    
+}
+.blogmage {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #13121163;
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  transition: .5s ease;
+}
+.blogSlideUp:hover .overlay {
+  height: 75%;
+}
+#button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+/* End Blog Page Image Animation */
+
+/*Start Css A Ngel Lay*/
+/*Start Style Css*/
+.carousel-item {
+  /* height: 100vh; */
+  min-height: 300px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.carousel-caption {
+  bottom: 270px;
+}
+
+.carousel-caption h5 {
+  font-size: 45px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 25px;
+}
+
+.carousel-caption p {
+  width: 75%;
+  margin: auto;
+  font-size: 18px;
+  line-height: 1.9;
+}
+
+.link-area
+{
+  position:fixed;
+  bottom:20px;
+  left:20px;  
+  padding:15px;
+  border-radius:40px;
+  background:tomato;
+}
+.link-area a
+{
+  text-decoration:none;
+  color:#fff;
+  font-size:25px;
+}
+/*End Style Css*/
+
+/*Start layout Css*/
+  h2{
+  text-align:center;
+  padding: 20px;
+}
+/* Slider */
+
+/* .slick-slide {
+    margin: 0px 20px;
+}
+
+.slick-slide img {
+    width: 100%;
+}
+
+.slick-slider
+{
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+            user-select: none;
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+        touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list
+{
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+.slick-list:focus
+{
+    outline: none;
+}
+.slick-list.dragging
+{
+    cursor: pointer;
+    cursor: hand;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list
+{
+    -webkit-transform: translate3d(0, 0, 0);
+       -moz-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+         -o-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+}
+
+.slick-track
+{
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+}
+.slick-track:before,
+.slick-track:after
+{
+    display: table;
+    content: '';
+}
+.slick-track:after
+{
+    clear: both;
+}
+.slick-loading .slick-track
+{
+    visibility: hidden;
+}
+
+.slick-slide
+{
+    display: none;
+    float: left;
+    height: 100%;
+    min-height: 1px;
+}
+[dir='rtl'] .slick-slide
+{
+    float: right;
+}
+.slick-slide img
+{
+    display: block;
+}
+.slick-slide.slick-loading img
+{
+    display: none;
+}
+.slick-slide.dragging img
+{
+    pointer-events: none;
+}
+.slick-initialized .slick-slide
+{
+    display: block;
+}
+.slick-loading .slick-slide
+{
+    visibility: hidden;
+}
+.slick-vertical .slick-slide
+{
+    display: block;
+    height: auto;
+    border: 1px solid transparent;
+}
+.slick-arrow.slick-hidden {
+    display: none;
+} */
+/*End Layout Css*/
+
+/*Start My Shop Css*/
+  /*Start Carousel*/
+  .carousel-item {
+    /*height: 100vh;*/
+    min-height: 100px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  .carousel-caption {
+    bottom: 270px;
+  }
+
+  .carousel-caption h5 {
+    font-size: 45px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 25px;
+  }
+
+  .carousel-caption p {
+    width: 75%;
+    margin: auto;
+    font-size: 18px;
+    line-height: 1.9;
+  }
+  .link-area
+  {
+    position:fixed;
+    bottom:20px;
+    left:20px;  
+    padding:15px;
+    border-radius:40px;
+    background:tomato;
+  }
+  .link-area a
+  {
+    text-decoration:none;
+    color:#fff;
+    font-size:25px;
+  }
+
+
+  .change_content:after{
+    content: '';
+    animation: changetext1 10s infinite linear;
+  color: #D2691E;
+  }
+  @keyframes changetext1{
+    0%{content:"20% Discount";}
+    20%{content:"Cash Back 10%";}
+    35%{content:"Give Away";}
+   /* 60%{content:"Nyan Lin Htet";}
+    80%{content:"Kyu Kyu Hlaing";}
+    100%{content:"Win Ko KO Hlaing";}*/
+  }
+
+
+
+  .change_content1:after{
+    content: '';
+    animation: changetext 10s infinite linear;
+  color: #D2691E;
+  }
+  @keyframes changetext{
+    0%{content:"50%";}
+    20%{content:"One Cuopon";}
+    35%{content:"Cash Back";}
+   /* 60%{content:"FACEBOOK";}
+    80%{content:"INSTAGRAM";}
+    100%{content:"ALIBABA";}*/
+  }
+  /* #move:hover{color: transparent;} */
+  #move{font-weight: bold;font-size: 30px;}
+
+  .Pos{
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+  }
+
+  .btn_right{
+    font-weight: bold;
+
+  }
+  .btn_right:hover{background-color: transparent;color: silver;}
+
+  .btn_left{
+    font-weight: bold;
+    color: black;
+    background-color: #D2691E;
+    border:1px solid:#D2691E ;
+
+  }
+  .btn_left:hover{color:#D2691E;font-weight: bold;background-color: transparent;border:1px solid #D2691E;}
+
+  #txt-deco{
+    text-shadow: 1px 1px 0px black;
+  }
+  /*End Carousel*/
+  .shopSlideUp {
+    position: relative;    
+  }
+  .image {
+    display: block;
+    width: 100%;
+    height: 400px;
+    /*margin-top: 100px;*/
+  }
+  .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #13121163;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .5s ease;
+  }
+  .shopSlideUp:hover .overlay {
+    height: 70%;
+  }
+  
+  .text {
+    color: white;
+    font-size: 25px;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  #button {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  .btnn{
+   
+    height: 40px;width: 110px;
+    border-radius: 120px;
+    background-color: #D2691E;
+    border: none;
+    color: white;
+    letter-spacing: 1px;
+    font-weight: bold;
+    font-size: 11px;
+    border: 2px solid white;
+    margin-top: 30px;
+    text-shadow: 1px 1px 0px black;
+
+}
+.btnn:hover{
+    background-color: transparent;
+}
+.buttonStyle{
+  background: #D2691E;
+  color: white;
+}
+/* Start facility */
+#ser-img{ border:1px solid transparent;border-radius: 500px;}
+#ser-img:hover{ box-shadow: 2px 2px 15px black; }
+
+h2{
+text-align:center;
+padding: 20px;
+}
+/*prepare file for index page*/
+.font_heading{
+  font-size: 3vw;
+}
+
+.img_chat{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.chat{
+  background-color:#ececec;
+  opacity: 5px;
+}
+/*animation*/
+
+
+#center-image {
+  /*border-radius: 50%;*/
+ 
+   margin: 0 auto;
+   $size: 200px;
+   width: $size;
+   height: $size;
+ }
+ 
+ #cf-check {
+   display: none;
+ }
+ 
+ #flexmad {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+ }
+ 
+ @keyframes spinner {
+   0%, 10% {
+     transform: rotateY(0deg)
+   }
+   90%, 100% {
+     transform: rotateY(360deg);
+   }
+ }
+ 
+ #center-image {
+   animation-duration: 1.5s;
+   animation-name: spinner;
+   animation-iteration-count: infinite;
+   //animation-timing-function: linear;
+ }
+ 
+ .attribution {
+   position: absolute;
+   bottom: 0;
+   right: 0;
+   padding: 2px 5px;
+   
+   a {
+     color: $smarkets-grey-text;
+     font-size: 10px;
+     text-decoration: none;
+     
+     &:hover {
+       text-decoration: underline;
+     }
+   }
+ }
+ .photoAnimation{
+   margin-top: 150px;
+   margin-bottom: 180px;
+ }
+ 
+ /*end animation*/
+ 
+ 
+ 
+ 

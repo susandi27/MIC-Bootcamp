@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Variable Scope</title>
+	<script type="text/javascript">
+		function mul(){
+			var a=2; //local variable
+			console.log(a*a);
+		}
+		//console.log(a);
+		mul();
+
+		var num=2;
+		function add(){
+			num+=4;
+			//console.log(num);
+		}
+		add();
+		//console.log(num);
+
+		num=5;
+		console.log(num);
+	</script>
+</head>
+<body>
+
+</body>
+</html>

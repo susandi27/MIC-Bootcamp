@@ -1,0 +1,42 @@
+		header{
+			height: auto;
+			padding: 20px;
+			background-color: #33FFBD;
+			text-align: center;
+			color:#fff;
+		}
+		footer{
+			height: auto;
+			background-color: #33FFBD;
+			padding: 10px;
+			color:#fff;
+			clear: both;
+		}
+		
+		div#container{
+			margin-top: 20px;
+			margin-bottom: 50px;
+			display: grid;
+			grid-template-columns: auto auto auto auto auto;
+		}
+		div.maindiv img{
+			width: 200px;
+			height: 200px;
+		}
+		div.maindiv p{
+			text-align: center;
+		}
+
+		div.maindiv button{
+			margin-left: 80px;
+
+		}
+
+		/*mycart*/
+		div.mycart{
+			margin-bottom: 50px;
+		}
+		div.mycart {
+			width: 70%;
+			margin:100px;
+		}

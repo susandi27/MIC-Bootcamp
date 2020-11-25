@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Shop</title>
+	<style type="text/css">
+		.myshop{
+			float: left;
+			margin-left: 40px;
+		}
+		.shop{
+			float: left;
+		}
+		.clear{
+			clear: both;
+		}
+		.mycart{
+			float: right;
+			margin-right: 50px;
+		}
+		#cart{
+			position: absolute;
+		}
+		#imgg{
+			position: relative;
+			margin-left: 50px;
+		}
+		
+	</style>
+	<script type="text/javascript" src="jquery.min.js"></script>
+</head>
+<body>
+<div class="shop">
+	<h1 align="center">My Shop</h1>
+	<div class="myshop">
+		<img src="download.jpg" width="100px" height="100px"><br>
+		<p>Humbagar</p>
+		<p>price:5000kyats</p><br>
+		<button class="addtocart" data-id="1" data-name="Humbagar" data-price="5000" data-photo="download.jpg">Add to cart</button>
+	</div>
+
+	<div class="myshop">
+		<img src="2.jpg" width="100px" height="100px"><br>
+		<p>Fried Chicken</p>
+		<p>price:2500kyats</p><br>
+		<button class="addtocart" data-id="2" data-name="Fried Chicken" data-price="2500" data-photo="2.jpg" >Add to cart</button>
+	</div>
+
+	<div class="myshop">
+		<img src="3.jpg" width="100px" height="100px"><br>
+		<p>Fried Rice</p>
+		<p>price:3000kyats</p><br>
+		<button class="addtocart" data-id="3" data-name="Fried Rice" data-price="3000" data-photo="3.jpg" >Add to cart</button>
+	</div>
+
+	<div class="clear"></div>
+</div>
+
+<div class="mycart">
+	<h1 align="center" style="display: inline;">My cart</h1>
+	<img src="cart1.png" width="50px" height="50px" id="imgg" ><span color="red" id="cart">3</span>
+
+	<table border="1" cellpadding="20px" style="margin-top: 30px">
+		<thead>
+			<th>No</th>
+			<th>Name</th>
+			<th>photo</th>
+			<th>qty</th>
+			<th>price</th>
+			<th>Subtotal</th>
+		</thead>
+		<tbody>
+			
+		</tbody>
+	</table>
+	<button class="checkout">Check out</button>
+	
+</div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		showdata();
+		cartnoti();
+
+		//add to the localstorage
+		$(".addtocart").click(function(){
+			//alert("ok");
+			var id=$(this).data('id');
+			var name=$(this).data('name');
+			var price=$(this).data('price');
+			var photo=$(this).data('photo');
+
+			var item={
+				id:id,
+				name:name,
+				price:price,
+				photo:photo,
+				qty:1,
+			}
+
+			//console.log(item);
+			var itemlist=localStorage.getItem("item");
+
+			var itemArray;
+			if(itemlist==null){
+				itemArray=[];
+			}else{
+				itemArray=JSON.parse(itemlist);
+			}
+
+			var status=false;
+			itemArray.forEach( function(v, i) {
+				if(id==v.id){
+					v.qty++
+					status=true;
+				}
+				// statements
+			});
+
+			if(status==false){
+				itemArray.push(item);
+			}
+			
+			//console.log(itemArray);
+			var itemstring=JSON.stringify(itemArray);
+			localStorage.setItem("item", itemstring);
+			showdata();
+			cartnoti();
+		})
+
+
+		//showdata
+		function showdata(){
+			var itemlist=localStorage.getItem("item");
+			if(itemlist){
+				var itemArray=JSON.parse(itemlist);
+				console.log(itemArray);
+				var html="";
+				var j=1;
+				var total=0;
+				var subtotal;
+				itemArray.forEach( function(v, i) {
+					// statements
+					subtotal=v.qty*v.price;
+					total+=subtotal;
+					html+=`<tr>
+					<td>${j++}</td>
+					<td>${v.name}</td>
+					<td><img src="${v.photo}" width="100" height="100"></td>
+					<td><button class="btnincrease" data-id="${i}">+</button>${v.qty}<button class="btndecrease" data-id="${i}">-</button></td>
+					<td>${v.price}</td>
+					<td>${subtotal}</td>
+					</tr>`
+				});
+				html+=`<tr><td colspan="5">all total</td><td>${total}</td><tr>`
+				$("tbody").html(html);
+			}
+		}
+
+		//noti
+		function cartnoti(){
+			var itemlist=localStorage.getItem("item");
+			var total=0;
+			if(itemlist){
+				var itemArray=JSON.parse(itemlist);
+				itemArray.forEach( function(v,i) {
+					//console.log(v);
+					total+=v.qty;
+					// statements
+				});
+				console.log(total);
+				$("#cart").html(total);
+
+			}
+		}
+
+
+		$("tbody").on('click','.btnincrease',function(){
+			//alert("ok");
+			var id=$(this).data('id');
+
+			var itemlist=localStorage.getItem("item");
+			if(itemlist){
+				var itemArray=JSON.parse(itemlist);
+
+				itemArray.forEach( function(v, i) {
+
+					if(i==id){
+						//alert("ok");
+						v.qty++;
+					}
+					// statements
+				});
+			var itemstring=JSON.stringify(itemArray);
+			localStorage.setItem("item",itemstring);
+			showdata();
+			cartnoti();
+			}
+		})
+
+
+		$("tbody").on('click','.btndecrease',function(){
+			//alert("ok");
+			var id=$(this).data('id');
+
+			var itemlist=localStorage.getItem("item");
+			if(itemlist){
+				var itemArray=JSON.parse(itemlist);
+
+				itemArray.forEach( function(v, i) {
+
+					if(i==id){
+						//alert("ok");
+						v.qty--;
+						if(v.qty==0){
+							itemArray.splice(id, 1);
+						}
+					}
+					// statements
+				});
+			var itemstring=JSON.stringify(itemArray);
+			localStorage.setItem("item",itemstring);
+			showdata();
+			cartnoti();
+			}
+		})
+
+
+	})
+</script>
+
+</body>

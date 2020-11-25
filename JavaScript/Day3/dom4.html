@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DOM 4</title>
+</head>
+<body>
+	<h1>JS</h1>
+	<p><h2>First Heading</h2></p>
+	<p>This is first Paragraph</p>
+	<h2>Second heading</h2>
+	<p>This is second Paragraph</p>
+	<button id="btncount">Count</button>
+
+	<script type="text/javascript">
+		var btn=document.getElementById("btncount");
+		btn.addEventListener('click', function(){
+			var heading=document.getElementsByTagName("h2");
+			console.log(heading);
+		})
+	</script>
+</body>
+</html>

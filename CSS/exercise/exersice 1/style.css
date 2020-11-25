@@ -1,0 +1,81 @@
+#div1{
+	height: 100px;
+}
+#fbar{
+	text-align: right;
+}
+#fbar a{
+	text-decoration: none;
+	color: black;
+}
+#fbar span{
+	padding: 15px;
+}
+#accpng img{
+	border-radius: 50%;
+}
+#div2{
+	text-align: center;
+	height: 190px;
+}
+.changefont{
+	font-size: 130px;
+}
+#g1,#g2{
+	color: #4285f4;
+}
+#o1,#e{
+	color: #ea4335;
+}
+#o2{
+	color:#fbbc05;
+}
+#l{
+	color: #34a853;
+}
+
+#div3{
+	text-align: center;
+	height: 100px;
+}
+#gsearch{
+	width: 600px;
+	height: 40px;
+	border-radius: 40px;
+	border-color: gray;
+	border-style: 1px solid gray;	
+}
+
+#div4{
+	text-align: center;
+	height: 50px;
+}
+
+#div4 button{
+	width: 150px;
+	height: 40px;
+	background-color: #f2f2f2;
+	border-style: hidden;
+}
+
+#div5{
+	text-align: center;
+	height: 50px;
+}
+
+#div6,#div7{
+	background-color: #f2f2f2;
+	height: 30px;
+	padding-left: 30px;
+	padding-top: 10px;
+	color:gray;
+	border-top: 1px solid white;
+}
+
+#div7 a{
+	text-decoration: none;
+	color:gray;
+}
+#div8 a{
+	text-align: center;
+}

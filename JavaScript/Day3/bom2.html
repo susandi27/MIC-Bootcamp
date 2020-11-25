@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Boom2</title>
+</head>
+<body>
+	<label id="current_time"></label>
+	<!-- <button onclick="showtime()">Click</button> -->
+	<!-- <button onclick="setInterval(showtime(),1000)">Click</button> -->
+	<button onclick="setTimeOut(showtime(),1000)">clicker</button> 
+	<!-- clearTimeOut -->
+	<button onclick="showclock=setInterval(showtime(),1000)">Click</button>
+	<button onclick="clearInterval(showclock)">Stop</button>
+	<script type="text/javascript">
+		function showtime(){
+			var now=new Date();
+			var current_time=now.toLocaleTimeString(); //totalDateString()
+			//console.log(current_time);
+			document.getElementById("current_time").innerHTML=current_time;
+		}
+	</script>
+</body>
+</html>
